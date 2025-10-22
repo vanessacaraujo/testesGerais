@@ -1,0 +1,56 @@
+{
+  "paresparceiros": [
+    {
+      "funcional": 987312354,
+      "nome": "Ana Braga",
+      "cpf": "12345678900",
+      "cargo": "Designer Pleno",
+      "email": "ana.braga@email.com.br",
+      "vinculo_ativo": true
+    },
+    {
+      "funcional": 987312355,
+      "nome": "Felipe Andre",
+      "cpf": "98765432100",
+      "cargo": "Engenheiro de Software Senior",
+      "email": "felipe.andre@email.com.br",
+      "vinculo_ativo": true
+    },
+    {
+      "funcional": 987312356,
+      "nome": "Joao Victor",
+      "cpf": "45678912300",
+      "cargo": "Analista de Negocios Pleno",
+      "email": "joao.v@email.com.br",
+      "vinculo_ativo": true
+    },
+    {
+      "funcional": 987312357,
+      "nome": "Maria Santos",
+      "cpf": "45678912200",
+      "cargo": "Engenheiro de Software Pleno",
+      "email": "maria.santos@email.com.br",
+      "vinculo_ativo": true
+    }
+  ],
+  "interacoes": [
+    {
+      "id": 1,
+      "cpf1": "12345678900",
+      "cpf2": "98765432100",
+      "data": "2025-10-10"
+    },
+    {
+      "id": 2,
+      "cpf1": "12345678900",
+      "cpf2": "45678912300",
+      "data": "2025-10-15"
+    },
+    {
+      "id": 2,
+      "cpf1": "12345678900",
+      "cpf2": "45678912200",
+      "data": "2024-10-15"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Configuraçao de lambda local para rodar no AWS SAM.
+
+Resources:
+  EnvioEmailFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: main/envioEmailLambda.handler
+      Runtime: nodejs18.x
+      CodeUri: .
+      MemorySize: 128
+      Timeout: 30
+      Events:
+        EnvioEmail:
+          Type: Api
+          Properties:
+            Path: /envio
+            Method: post
