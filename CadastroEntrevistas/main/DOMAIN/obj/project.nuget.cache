@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "E+OYeMyC8W8=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\vanessa\\Desktop\\Git\\CadastroEntrevistas\\main\\DOMAIN\\CadastroEntrevista.DOMAIN.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vanessa\\.nuget\\packages\\awssdk.core\\4.0.1.1\\awssdk.core.4.0.1.1.nupkg.sha512",
+    "C:\\Users\\vanessa\\.nuget\\packages\\awssdk.dynamodbv2\\4.0.8.1\\awssdk.dynamodbv2.4.0.8.1.nupkg.sha512",
+    "C:\\Users\\vanessa\\.nuget\\packages\\brazilholidays.net\\1.0.4\\brazilholidays.net.1.0.4.nupkg.sha512"
+  ],
+  "logs": []
+}

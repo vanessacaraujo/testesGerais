@@ -1,0 +1,75 @@
+CREATE DATABASE IF NOT EXISTS rh;
+USE rh;
+
+CREATE TABLE Colaborador (
+    funcional INT PRIMARY KEY AUTO_INCREMENT,
+    cpf CHAR(11) NOT NULL UNIQUE,
+    nome VARCHAR(100) NOT NULL,
+    cargo VARCHAR(100),
+    data_nascimento DATE,
+    vinculo_ativo BOOLEAN,
+    data_inicio_vinculo DATE,
+    data_fim_vinculo DATE
+);
+
+CREATE TABLE Equipe (
+    id_equipe INT PRIMARY KEY AUTO_INCREMENT,
+    nome_equipe VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE VinculoEquipe (
+    id_contrato INT PRIMARY KEY AUTO_INCREMENT,
+    funcional INT NOT NULL,
+    id_equipe INT NOT NULL,
+    data_inicio DATE NOT NULL,
+    data_fim DATE,
+    FOREIGN KEY (funcional) REFERENCES Colaborador(funcional),
+    FOREIGN KEY (id_equipe) REFERENCES Equipe(id_equipe)
+);
+
+
+INSERT INTO Equipe (nome_equipe) VALUES
+('Squad 1'),
+('Squad 2'),
+('Squad 3');
+
+INSERT INTO Colaborador (cpf, nome, cargo, data_nascimento, vinculo_ativo) VALUES
+('11111111111', 'Ana XPTO', 'Engenheiro_Pleno', '1990-04-12', true),
+('22222222222', 'Carlos Carlosa', 'Estagiario', '1988-10-03', true),
+('33333333333', 'Zé Ninguem', 'Especialista_3', '1985-07-21', false),
+('44444444444', 'João Gomes', 'CientistaDados_1', '1992-11-18', true);
+
+truncate table VinculoEquipe
+INSERT INTO VinculoEquipe (funcional, id_equipe, data_inicio, data_fim) VALUES
+(1, 1, '2022-01-01', '2023-06-30'),
+(2, 1, '2022-03-15', '2024-12-31'),
+(4, 1, '2022-03-15', '2024-12-31'),
+(3, 2, '2022-01-01', '2022-12-31' ),
+(4, 2, '2023-01-01', NULL);
+
+SELECT DISTINCT
+    f2.nome AS colega_nome,
+    f2.cpf AS colega_cpf,
+    e.nome_equipe AS equipe
+FROM
+    Colaborador f1
+JOIN
+    VinculoEquipe c1 ON f1.funcional = c1.funcional
+JOIN
+    VinculoEquipe c2 ON c1.id_equipe = c2.id_equipe
+JOIN
+    Colaborador f2 ON c2.funcional = f2.funcional
+JOIN
+    Equipe e ON e.id_equipe = c1.id_equipe
+WHERE
+    f1.cpf = '11111111111' -- CPF base
+    AND f1.funcional <> f2.funcional
+    AND (
+        c1.data_inicio <= COALESCE(c2.data_fim, CURRENT_DATE)
+        AND c2.data_inicio <= COALESCE(c1.data_fim, CURRENT_DATE)
+    )
+    AND (
+        c1.data_inicio <= '2023-12-31'
+        AND COALESCE(c1.data_fim, CURRENT_DATE) >= '2022-01-01'
+    )
+ORDER BY f2.nome;

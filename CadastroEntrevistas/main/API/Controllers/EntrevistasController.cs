@@ -29,10 +29,29 @@ namespace CadastroEntrevista.API.Controllers
             return NoContent();
         }
 
+        [HttpGet()]
+        public async Task<IActionResult> RecuperaEntrevistasAsync(Guid idEntrevista)
+        {
+            return Ok();
+        }
+
         [HttpGet("{idEntrevista}")]
         public async Task<IActionResult> RecuperaEntrevistaAsync(Guid idEntrevista)
         {
             return Ok();
+        }
+        
+        
+        [HttpPatch("{idEntrevista}")]
+        public async Task<IActionResult> AlteraEntrevistaAsync(Guid idEntrevista)
+        {
+            return Ok();
+        }
+
+        [HttpDelete("{idEntrevista}")]
+        public async Task<IActionResult> ExcluiEntrevistaAsync(Guid idEntrevista)
+        {
+            return NoContent();
         }
     }
 }
