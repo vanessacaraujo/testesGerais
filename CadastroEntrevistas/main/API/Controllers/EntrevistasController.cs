@@ -52,6 +52,6 @@ namespace CadastroEntrevista.API.Controllers
         public async Task<IActionResult> ExcluiEntrevistaAsync(Guid idEntrevista)
         {
             return NoContent();
-        }
+        } 
     }
 }
