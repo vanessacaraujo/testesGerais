@@ -49,8 +49,4 @@ lerna-debug.log*
 
 # Arquivos de IDEs (opcional)
 .vs/
-*.sln
-*.csproj
-*.fsproj
-*.vbproj
 *.userprefs

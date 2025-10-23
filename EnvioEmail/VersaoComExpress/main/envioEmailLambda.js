@@ -41,14 +41,10 @@ app.post('/EnvioEmail', async (requisicao, resposta) => {
         }
 
         var template = HandleBars.compile(templateEmail.toString('utf-8'));
-        var nomeColaborador = event.nomeColaborador || 'Colaborador';
-        var dataExpiracao = event.dataExpiracao;
-        var idEntrevista = event.idEntrevista;
-
         var corpoEmail = template({
-            nome: nomeColaborador,
-            dataExpiracao: dataExpiracao,
-            idEntrevista: idEntrevista
+            nomeColaborador: event.nomeColaborador || 'Colaborador',
+            dataExpiracao: event.dataExpiracao,
+            idEntrevista: event.idEntrevista
         });
 
         var requisicaoEnvioEmail = {
